@@ -19,5 +19,9 @@ jobs:
       - name: Install pytest
         run: pip install pytest
 
+      - name: Add src to PYTHONPATH
+        run: echo "PYTHONPATH=src" >> $GITHUB_ENV
+
+
       - name: Run all tests
         run: pytest -q
