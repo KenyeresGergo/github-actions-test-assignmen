@@ -20,7 +20,8 @@ jobs:
         run: pip install pytest
 
       - name: Add src to PYTHONPATH
-        run: echo "PYTHONPATH=${{ github.workspace }}/src" >> $GITHUB_ENV
+        run: echo "PYTHONPATH=$GITHUB_WORKSPACE/src" >> $GITHUB_ENV
 
-      - name: Run all tests
+      - name: Run all tests from repo root
+        working-directory: ${{ github.workspace }}
         run: pytest -q
