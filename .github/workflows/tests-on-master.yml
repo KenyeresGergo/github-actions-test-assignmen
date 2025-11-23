@@ -16,12 +16,11 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install pytest
+      - name: Install dependencies
         run: pip install pytest
 
-      - name: Add src to PYTHONPATH
-        run: echo "PYTHONPATH=src" >> $GITHUB_ENV
-
+      - name: Add repo root to PYTHONPATH
+        run: echo "PYTHONPATH=${{ github.workspace }}" >> $GITHUB_ENV
 
       - name: Run all tests
         run: pytest -q
